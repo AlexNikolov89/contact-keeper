@@ -8,16 +8,19 @@ import {ContactState} from './context/contact/ContactState'
 import {AuthState} from './context/auth/AuthState'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-
+import {AlertState} from './context/alert/AlertState'
+import Alerts from './components/layout/Alerts'
 
 const App = () => {
   return (
     <AuthState>
       <ContactState>
+      <AlertState>
         <Router>
           <Fragment>
             <Navbar />
             <div className="container">
+            <Alerts />
               <Switch>
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
@@ -27,6 +30,7 @@ const App = () => {
             </div>
           </Fragment>
         </Router>
+        </AlertState>
       </ContactState>
     </AuthState>
   )
